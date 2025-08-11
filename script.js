@@ -9,22 +9,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const scaleSpeed = 0.1;
     let animationFrameId = null;
 
-    document.body.addEventListener('touchmove', preventAll, { passive: false });
-    document.addEventListener('gesturestart', preventAll);
-    document.addEventListener('contextmenu', preventAll);
-    
-    function preventAll(e) {
-        if (!isPressed) {
+    const preventUnwantedActions = (e) => {
+        if (e.target === image && e.type !== 'touchstart' && e.type !== 'mousedown') {
             e.preventDefault();
             e.stopPropagation();
             return false;
         }
-    }
+    };
 
+    document.addEventListener('contextmenu', preventUnwantedActions);
+    document.addEventListener('selectstart', preventUnwantedActions);
+    document.addEventListener('dragstart', preventUnwantedActions);
+    window.addEventListener('touchmove', preventUnwantedActions, { passive: false });
+    
     function animate() {
         const scaleDiff = targetScaleY - currentScaleY;
         currentScaleY += scaleDiff * scaleSpeed;
-        
         image.style.transform = `scaleY(${currentScaleY})`;
         
         if (Math.abs(scaleDiff) > 0.001) {
@@ -52,10 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    image.addEventListener('mousedown', handlePress);
     image.addEventListener('touchstart', handlePress, { passive: false });
-    image.addEventListener('mouseup', handleRelease);
+    image.addEventListener('mousedown', handlePress);
     image.addEventListener('touchend', handleRelease);
+    image.addEventListener('mouseup', handleRelease);
+    image.addEventListener('touchcancel', handleRelease);
     
     animate();
 });
