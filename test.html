@@ -1,100 +1,39 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ảnh Đàn Hồi 1/2 Màn Hình</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            touch-action: manipulation;
-        }
-        
-        .image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 50vh; /* Chiếm 50% chiều cao màn hình */
-            width: auto;
-        }
-        
-        #elastic-image {
-            height: 100%; /* Chiều cao bằng container (50vh) */
-            width: auto;
-            max-width: 100vw; /* Đảm bảo không vượt quá chiều rộng màn hình */
-            object-fit: contain;
-            cursor: pointer;
-            user-select: none;
-            -webkit-user-drag: none;
-            transform-origin: 50% 100%;
-        }
-        
-        .instructions {
-            margin-top: 20px;
-            color: #666;
-            font-size: 14px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="image-container">
-        <img id="elastic-image" src="https://res.cloudinary.com/duyf6wzx4/image/upload/v1754904750/penguin.png" alt="Ảnh đàn hồi">
-        <!-- <div class="instructions">Nhấn và giữ để làm ảnh xẹp xuống</div> -->
-    </div>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    touch-action: none; /* Vô hiệu hóa tất cả cử chỉ touch mặc định */
+    user-select: none; /* Ngăn chọn text */
+    -webkit-user-select: none; /* Cho Safari */
+    -webkit-touch-callout: none; /* Ngăn menu context trên iOS */
+}
 
-    <script>
-        const image = document.getElementById('elastic-image');
-        const originalHeight = 1;
-        const pressedHeight = 0.7;
-        
-        let isPressed = false;
-        let currentScaleY = originalHeight;
-        let targetScaleY = originalHeight;
-        const scaleSpeed = 0.1;
-        let animationFrameId = null;
-        
-        function animate() {
-            const scaleDiff = targetScaleY - currentScaleY;
-            currentScaleY += scaleDiff * scaleSpeed;
-            
-            image.style.transform = `scaleY(${currentScaleY})`;
-            
-            if (Math.abs(scaleDiff) > 0.001) {
-                animationFrameId = requestAnimationFrame(animate);
-            }
-        }
-        
-        function handlePress() {
-            isPressed = true;
-            targetScaleY = pressedHeight;
-            cancelAnimationFrame(animationFrameId);
-            animate();
-        }
-        
-        function handleRelease() {
-            if (isPressed) {
-                isPressed = false;
-                targetScaleY = originalHeight;
-                cancelAnimationFrame(animationFrameId);
-                animate();
-            }
-        }
-        
-        image.addEventListener('mousedown', handlePress);
-        image.addEventListener('touchstart', handlePress);
-        document.addEventListener('mouseup', handleRelease);
-        document.addEventListener('touchend', handleRelease);
-        image.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
-        
-        animate();
-    </script>
-</body>
-</html>
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: auto;
+}
+
+#elastic-image {
+    height: 100%;
+    width: auto;
+    max-width: 100vw;
+    object-fit: contain;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-drag: none;
+    transform-origin: 50% 100%;
+    pointer-events: auto; /* Chỉ cho phép tương tác với ảnh */
+}
+
+/* Ngăn hiệu ứng active trên mobile */
+#elastic-image:active {
+    -webkit-tap-highlight-color: transparent;
+}

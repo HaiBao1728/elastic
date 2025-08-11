@@ -7,6 +7,10 @@ body {
     background-color: #f0f0f0;
     font-family: Arial, sans-serif;
     touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
 }
 
 .image-container {
@@ -27,4 +31,9 @@ body {
     user-select: none;
     -webkit-user-drag: none;
     transform-origin: 50% 100%;
+    pointer-events: auto;
+}
+
+#elastic-image:active {
+    -webkit-tap-highlight-color: transparent;
 }
