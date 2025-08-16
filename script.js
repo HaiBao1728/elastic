@@ -227,7 +227,7 @@ function setupElasticEffect(imageElement, character) {
         pressStartTime = Date.now();
         pressCount++;
         
-        if (pressCount >= 100) {
+        if (pressCount >= 50) {
             transformCharacter();
         }
         
