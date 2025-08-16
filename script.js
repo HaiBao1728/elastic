@@ -1,21 +1,42 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Danh sách nhân vật
     const characters = [
-        { id: 1, name: 'Penguin', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935197/1_r2z26y.png' },
-        { id: 2, name: 'Cat', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935260/2_ziyaqr.png' },
-        { id: 3, name: 'Dog', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935259/3_x8e4lk.png' },
-        { id: 4, name: 'Rabbit', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935258/4_he8foq.png' },
-        { id: 5, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935257/5_frbrxf.png' },
-        { id: 6, name: 'Bear', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935256/6_tt8zaw.png' },
-        { id: 7, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935258/7_zc7pjq.png' },
-        { id: 8, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935255/8_m6wciu.png' },
-        { id: 9, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935258/9_r0keug.png' },
-        { id: 10, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935257/10_utbpre.png' },
-        { id: 11, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935255/11_fkkunp.png' },
-        { id: 12, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1754935254/12_wcnz39.png' }
+        { id: 1, name: 'Penguin', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353692/1_xizcuw.png' },
+        { id: 2, name: 'Cat', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353696/2_owfsfz.png' },
+        { id: 3, name: 'Dog', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353697/3_murkxc.png' },
+        { id: 4, name: 'Rabbit', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353697/4_oq3l4h.png' },
+        { id: 5, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353697/5_ktji1m.png' },
+        { id: 6, name: 'Bear', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353698/6_bfqpol.png' },
+        { id: 7, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353698/7_vghzrt.png' },
+        { id: 8, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353698/8_vyurqa.png' },
+        { id: 9, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353699/9_k9avwq.png' },
+        { id: 10, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353694/10_d1xagx.png' },
+        { id: 11, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353694/11_nft3uy.png' },
+        { id: 12, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353694/12_mxmddc.png' },
+        { id: 13, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353694/13_jutziq.png' },
+        { id: 14, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353695/14_u5nwax.png' },
+        { id: 15, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353692/15_ws26sq.png' },
+        { id: 16, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353693/16_xmpq5p.png' },
+        { id: 17, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353695/17_dultaq.png' },
+        { id: 18, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353695/18_r3rcvq.png' },
+        { id: 19, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353695/19_z3ymsc.png' },
+        { id: 20, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353696/20_m36d5v.png' },
+        { id: 21, name: 'Fox', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353696/21_uylayq.png' }
     ];
 
-    // DOM Elements
+    const transformedCharacters = [
+        { id: 1, name: 'Penguin Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353693/1.1_rodsov.png' },
+        { id: 2, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353696/2.1_vnt9su.png' },
+        { id: 3, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353697/3.1_doivtz.png' },
+        { id: 4, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353697/3.1_doivtz.png' },
+        { id: 5, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353697/5.1_sx2pmo.png' },
+        { id: 6, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353698/6.1_ppmrkd.png' },
+        { id: 8, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353698/8.1_bw64zb.png' },
+        { id: 9, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353699/9.1_ztezfb.png' },
+        { id: 10, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353694/10.1_clxchi.png' },
+        { id: 13, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353695/13.1_nm9vqr.png' },
+        { id: 18, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353695/18.1_hemtp1.png' },
+    ];
+
     const characterSelection = document.getElementById('character-selection');
     const gameScreen = document.getElementById('game-screen');
     const characterGrid = document.querySelector('.character-grid');
@@ -24,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const backButton = document.getElementById('back-button');
     const charactersRow = document.querySelector('.characters-row');
 
-    // State
     let selectedCharacters = [];
 
     function initCharacterSelection() {
@@ -66,7 +86,6 @@ function updateSelectedCharacters() {
     const centerContainer = document.createElement('div');
     centerContainer.className = 'selected-center';
     
-    // Thêm wrapper để đảm bảo căn giữa tốt hơn
     const innerWrapper = document.createElement('div');
     innerWrapper.style.display = 'flex';
     innerWrapper.style.justifyContent = 'center';
@@ -117,6 +136,8 @@ function startGame() {
     const charactersRow = document.querySelector('.characters-row');
     charactersRow.innerHTML = '';
     
+    const cleanups = [];
+    
     selectedCharacters.forEach(character => {
         const container = document.createElement('div');
         container.className = 'character-container';
@@ -128,88 +149,144 @@ function startGame() {
         
         container.appendChild(img);
         charactersRow.appendChild(container);
-        setupElasticEffect(img);
+        const cleanup = setupElasticEffect(img, character);
+        cleanups.push(cleanup);
     });
     
-    // Căn giữa các nhân vật
     if (selectedCharacters.length === 1) {
         charactersRow.style.justifyContent = 'center';
     }
+    
+    // Cleanup khi quay lại màn hình chọn nhân vật
+    backButton.addEventListener('click', function cleanupHandler() {
+        cleanups.forEach(cleanup => cleanup());
+        backButton.removeEventListener('click', cleanupHandler);
+    }, { once: true });
 }
 
-    // Quay lại màn hình chọn
     function backToSelection() {
         characterSelection.style.display = 'block';
         gameScreen.style.display = 'none';
     }
 
-    // Thiết lập hiệu ứng đàn hồi cho từng nhân vật
-    function setupElasticEffect(imageElement) {
-        const originalHeight = 1;
-        const pressedHeight = 0.7;
+function setupElasticEffect(imageElement, character) {
+    const originalHeight = 1;
+    const pressedHeight = 0.7;
+    
+    let isPressed = false;
+    let currentScaleY = originalHeight;
+    let targetScaleY = originalHeight;
+    const scaleSpeed = 0.1;
+    let animationFrameId = null;
+    
+    let pressCount = 0;
+    let pressStartTime = 0;
+    let isTransformed = false;
+    let transformTimeout = null;
+    
+    const originalSrc = imageElement.src;
+    
+    const transformedCharacter = transformedCharacters.find(c => c.id === character.id);
+    
+    function transformCharacter() {
+        if (!transformedCharacter || isTransformed) return;
         
-        let isPressed = false;
-        let currentScaleY = originalHeight;
-        let targetScaleY = originalHeight;
-        const scaleSpeed = 0.1;
-        let animationFrameId = null;
-
-        const preventUnwantedActions = (e) => {
-            if (e.target === imageElement && e.type !== 'touchstart' && e.type !== 'mousedown') {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-        };
-
-        document.addEventListener('contextmenu', preventUnwantedActions);
-        document.addEventListener('selectstart', preventUnwantedActions);
-        document.addEventListener('dragstart', preventUnwantedActions);
-        window.addEventListener('touchmove', preventUnwantedActions, { passive: false });
+        isTransformed = true;
+        imageElement.src = transformedCharacter.url;
         
-        function animate() {
-            const scaleDiff = targetScaleY - currentScaleY;
-            currentScaleY += scaleDiff * scaleSpeed;
-            imageElement.style.transform = `scaleY(${currentScaleY})`;
-            
-            if (Math.abs(scaleDiff) > 0.001) {
-                animationFrameId = requestAnimationFrame(animate);
-            }
-        }
-        
-        function handlePress(e) {
+        transformTimeout = setTimeout(() => {
+            imageElement.src = originalSrc;
+            isTransformed = false;
+            pressCount = 0;
+        }, 5000);
+    }
+    
+    const preventUnwantedActions = (e) => {
+        if (e.target === imageElement && e.type !== 'touchstart' && e.type !== 'mousedown') {
             e.preventDefault();
             e.stopPropagation();
-            isPressed = true;
-            targetScaleY = pressedHeight;
+            return false;
+        }
+    };
+    
+    function animate() {
+        const scaleDiff = targetScaleY - currentScaleY;
+        currentScaleY += scaleDiff * scaleSpeed;
+        imageElement.style.transform = `scaleY(${currentScaleY})`;
+        
+        if (Math.abs(scaleDiff) > 0.001) {
+            animationFrameId = requestAnimationFrame(animate);
+        }
+    }
+    
+    function handlePress(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        isPressed = true;
+        targetScaleY = pressedHeight;
+        pressStartTime = Date.now();
+        pressCount++;
+        
+        if (pressCount >= 100) {
+            transformCharacter();
+        }
+        
+        cancelAnimationFrame(animationFrameId);
+        animate();
+    }
+    
+    function handleRelease(e) {
+        if (isPressed) {
+            e.preventDefault();
+            e.stopPropagation();
+            isPressed = false;
+            targetScaleY = originalHeight;
+            
+            // Kiểm tra thời gian nhấn giữ
+            const pressDuration = Date.now() - pressStartTime;
+            if (pressDuration >= 5000) { // 5 giây
+                transformCharacter();
+            }
+            
             cancelAnimationFrame(animationFrameId);
             animate();
         }
-        
-        function handleRelease(e) {
-            if (isPressed) {
-                e.preventDefault();
-                e.stopPropagation();
-                isPressed = false;
-                targetScaleY = originalHeight;
-                cancelAnimationFrame(animationFrameId);
-                animate();
-            }
-        }
-        
-        imageElement.addEventListener('touchstart', handlePress, { passive: false });
-        imageElement.addEventListener('mousedown', handlePress);
-        imageElement.addEventListener('touchend', handleRelease);
-        imageElement.addEventListener('mouseup', handleRelease);
-        imageElement.addEventListener('touchcancel', handleRelease);
-        
-        animate();
     }
+    
+    // Xóa timeout khi component unmount
+    const cleanup = () => {
+        if (transformTimeout) {
+            clearTimeout(transformTimeout);
+        }
+        document.removeEventListener('contextmenu', preventUnwantedActions);
+        document.removeEventListener('selectstart', preventUnwantedActions);
+        document.removeEventListener('dragstart', preventUnwantedActions);
+        window.removeEventListener('touchmove', preventUnwantedActions);
+        imageElement.removeEventListener('touchstart', handlePress);
+        imageElement.removeEventListener('mousedown', handlePress);
+        imageElement.removeEventListener('touchend', handleRelease);
+        imageElement.removeEventListener('mouseup', handleRelease);
+        imageElement.removeEventListener('touchcancel', handleRelease);
+    };
+    
+    document.addEventListener('contextmenu', preventUnwantedActions);
+    document.addEventListener('selectstart', preventUnwantedActions);
+    document.addEventListener('dragstart', preventUnwantedActions);
+    window.addEventListener('touchmove', preventUnwantedActions, { passive: false });
+    
+    imageElement.addEventListener('touchstart', handlePress, { passive: false });
+    imageElement.addEventListener('mousedown', handlePress);
+    imageElement.addEventListener('touchend', handleRelease);
+    imageElement.addEventListener('mouseup', handleRelease);
+    imageElement.addEventListener('touchcancel', handleRelease);
+    
+    animate();
+    
+    return cleanup;
+}
 
-    // Event listeners
     startButton.addEventListener('click', startGame);
     backButton.addEventListener('click', backToSelection);
 
-    // Khởi tạo
     initCharacterSelection();
 });

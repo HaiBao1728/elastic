@@ -65,6 +65,10 @@ body {
         height: 30%;
         width: 100%;
     }
+
+    .character-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
 }
 
 .available-characters {
@@ -75,6 +79,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    min-height: 0;
 }
 
 .selected-characters {
@@ -90,13 +95,26 @@ body {
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 12px;
     overflow-y: auto;
     flex: 1;
     padding: 12px;
     align-items: center;
     justify-items: center;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.1) transparent;
+}
+
+.character-grid::-webkit-scrollbar {
+    width: 6px;
+}
+.character-grid::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+.character-grid::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .selected-grid {
@@ -168,6 +186,7 @@ body {
     max-width: 140px;
     width: 100%;
     box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    flex-shrink: 0;
 }
 
 .character-item img {
@@ -220,7 +239,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 65vh;
     max-width: auto;
 }
 
@@ -260,7 +279,7 @@ body {
 
 @media (max-width: 600px) {
     .character-grid {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
     }
     
     .characters-row {
@@ -279,7 +298,23 @@ body {
         width: 84px;
         height: 84px;
     }
-    .character-grid { gap: 8px; grid-template-columns: repeat(auto-fit, minmax(72px, 1fr)); }
+    /* .character-grid { gap: 8px; grid-template-columns: repeat(auto-fit, minmax(72px, 1fr)); } */
+}
+
+@media (max-width: 480px) {
+    .character-grid {
+        gap: 8px;
+        grid-template-columns: repeat(auto-fill, minmax(62px, 1fr));
+        padding: 8px;
+    }
+    
+    .available-characters {
+        padding: 10px;
+    }
+    
+    .character-item {
+        padding: 6px;
+    }
 }
 
 .selected-center::-webkit-scrollbar {
@@ -356,4 +391,14 @@ body {
         padding: 8px 16px;
         font-size: 13px;
     }
+}
+
+.elastic-character.transformed {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
 }
