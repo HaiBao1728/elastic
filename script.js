@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 1, name: 'Penguin Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353693/1.1_rodsov.png' },
         { id: 2, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353696/2.1_vnt9su.png' },
         { id: 3, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353697/3.1_doivtz.png' },
-        { id: 4, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353697/3.1_doivtz.png' },
+        { id: 4, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353697/4.1_dw7lvk.png' },
         { id: 5, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353697/5.1_sx2pmo.png' },
         { id: 6, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353698/6.1_ppmrkd.png' },
         { id: 8, name: 'Cat Angry', url: 'https://res.cloudinary.com/duyf6wzx4/image/upload/v1755353698/8.1_bw64zb.png' },
